@@ -72,9 +72,10 @@ footer{background:#0a1226;color:#8d98b3;padding:40px 0 100px;font-size:14px;text
 @media (max-width:640px){#wa{left:auto;right:22px;bottom:calc(92px + env(safe-area-inset-bottom,0px))}}
 @media (max-width:860px){nav .l a{display:none}.split{grid-template-columns:1fr;gap:34px}.acc{flex-direction:column;height:auto}.pn,.pn.on{flex:none;height:92px}.pn.on{height:420px}.pn .v{writing-mode:horizontal-tb;transform:none;left:24px;bottom:auto;top:30px}.pn .n{display:none}section{padding:80px 0}.hero .w{padding-bottom:50px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.lang{display:flex;gap:6px}.lang button{background:none;border:0;border-bottom:1px solid transparent;color:#fff;font:600 12px Raleway;letter-spacing:.15em;cursor:pointer;opacity:.6;padding:4px}.lang button.on{opacity:1;border-color:var(--gold)}
 </style></head><body>
 <div id="intro" role="dialog" aria-label="Welcome"><div><span class="lab">Kumyalı Estate &amp; Construction</span><h1 id="tw"></h1></div><button id="skip">Skip</button></div>
-<nav><div class="w"><div class="l"><a href="#projects">Projects</a><a href="#services">Services</a></div><a class="logo" href="#top">KUMYALI</a><div class="r"><a href="https://wa.me/905338649696?text=Hello%2C%20I%20found%20your%20website%20and%20would%20like%20some%20information." target="_blank" rel="noopener">WhatsApp</a></div></div></nav>
+<nav><div class="w"><div class="l"><a href="#projects">Projects</a><a href="#services">Services</a></div><a class="logo" href="#top">KUMYALI</a><div class="r"><div class="lang"><button data-l="en">EN</button><button data-l="tr">TR</button><button data-l="ru">RU</button></div><a href="https://wa.me/905338649696?text=Hello%2C%20I%20found%20your%20website%20and%20would%20like%20some%20information." target="_blank" rel="noopener">WhatsApp</a></div></div></nav>
 <header class="hero" id="top" style="background-image:url(assets/img-01.jpg)">
 <video autoplay muted loop playsinline preload="auto" aria-hidden="true"><source src="assets/hero.mp4" type="video/mp4"></video>
 <div class="w"><div><span class="lab">Girne · Kyrenia · North Cyprus</span><h1>Architecture, real estate and land.</h1><p>Designed, built and sold from one office on Ecevit Caddesi.</p>
@@ -131,4 +132,119 @@ q("#f").onsubmit=function(e){e.preventDefault();var i=q("#in");ask(i.value.trim(
 q("#aib").onclick=function(){pan.classList.toggle("open");if(!msgs.children.length)add("Hello, I’m Kumi, the assistant for Kumyalı Estate & Construction. This is a demo, so my answers are limited. How can I help?","b")};
 q("#x").onclick=function(){pan.classList.remove("open")};
 var v=q("video");if(matchMedia("(prefers-reduced-motion:reduce)").matches){v.removeAttribute("autoplay");v.pause()}
+
+/* ===== language switcher (EN/TR/RU) ===== */
+var T={
+"Skip":["Geç","Пропустить"],
+"Projects":["Projeler","Проекты"],
+"Services":["Hizmetler","Услуги"],
+"Girne · Kyrenia · North Cyprus":["Girne · Kyrenia · Kuzey Kıbrıs","Гирне · Кирения · Северный Кипр"],
+"Architecture, real estate and land.":["Mimarlık, gayrimenkul ve arsa.","Архитектура, недвижимость и земля."],
+"Designed, built and sold from one office on Ecevit Caddesi.":["Ecevit Caddesi'ndeki tek bir ofisten tasarlanır, inşa edilir ve satılır.","Проектируем, строим и продаём из одного офиса на Ecevit Caddesi."],
+"Chat on WhatsApp":["WhatsApp'tan yazın","Написать в WhatsApp"],
+"Explore projects":["Projeleri keşfedin","Смотреть проекты"],
+"Google rating":["Google puanı","Рейтинг Google"],
+"Reviews":["Yorum","Отзывы"],
+"Google reviews":["Google yorumu","Отзывы в Google"],
+"Kumyalı, at a glance":["Bir bakışta Kumyalı","Kumyalı: коротко"],
+"One team, from the first sketch to the keys.":["Tek ekip: ilk çizimden anahtar teslimine.","Одна команда: от первого эскиза до ключей."],
+"Services under one roof":["Tek çatı altında hizmet","Услуги под одной крышей"],
+"Languages: EN · TR · RU":["Diller: EN · TR · RU","Языки: EN · TR · RU"],
+"Signature projects":["Seçkin projeler","Избранные проекты"],
+"Homes designed to be lived in.":["Yaşamak için tasarlanmış evler.","Дома, созданные для жизни."],
+"Sea-view villa":["Deniz manzaralı villa","Вилла с видом на море"],
+"Garden house with pool":["Havuzlu bahçeli ev","Дом с садом и бассейном"],
+"Penthouse apartments":["Penthouse daireler","Апартаменты-пентхаусы"],
+"Courtyard villa":["Avlulu villa","Вилла с внутренним двором"],
+"Modern villa":["Modern villa","Современная вилла"],
+"Open-plan apartment":["Açık planlı daire","Квартира со свободной планировкой"],
+"Sample":["Örnek","Образец"],
+"Girne · Villa":["Girne · Villa","Гирне · Вилла"],
+"İskele · Residence":["İskele · Rezidans","Искеле · Резиденция"],
+"Girne · Apartments":["Girne · Daireler","Гирне · Апартаменты"],
+"İskele · Villa":["İskele · Villa","Искеле · Вилла"],
+"Gazimağusa · Apartment":["Gazimağusa · Daire","Фамагуста · Апартаменты"],
+"Ask about this":["Bu proje hakkında sorun","Узнать подробнее"],
+"Sample images shown for layout. Kumyalı’s own projects replace them once supplied.":["Örnek görseller yerleşim içindir. Kumyalı'nın kendi projeleri temin edildiğinde bunların yerini alacaktır.","Образцы изображений показаны для макета. Проекты Kumyalı заменят их, когда будут предоставлены."],
+"What we do":["Ne yapıyoruz","Чем мы занимаемся"],
+"Four services, one address.":["Dört hizmet, tek adres.","Четыре услуги, один адрес."],
+"Architecture":["Mimarlık","Архитектура"],
+"Interior design":["İç mimarlık","Дизайн интерьера"],
+"Real estate":["Gayrimenkul","Недвижимость"],
+"Land & investment":["Arsa ve yatırım","Земля и инвестиции"],
+"Design for homes and buildings in Kyrenia.":["Girne'de konut ve binalar için tasarım.","Проекты домов и зданий в Кирении."],
+"Interiors planned to fit the way you live.":["Yaşam tarzınıza uygun planlanan iç mekanlar.","Интерьеры, спланированные под ваш образ жизни."],
+"Properties for sale, with our team beside you.":["Satılık gayrimenkuller, ekibimiz yanınızda.","Недвижимость на продажу, наша команда рядом с вами."],
+"Land and investment property in North Cyprus.":["Kuzey Kıbrıs'ta arsa ve yatırım gayrimenkulü.","Земля и инвестиционная недвижимость на Северном Кипре."],
+"Visit us":["Bizi ziyaret edin","Приходите к нам"],
+"Come and meet the team.":["Gelin, ekibimizle tanışın.","Приходите познакомиться с командой."],
+"Our office is at Ecevit Cd 23, Girne. Walk in, ask your questions and talk through your plans face to face. Open daily until 5 PM.":["Ofisimiz Ecevit Cd 23, Girne'de. Uğrayın, sorularınızı sorun ve planlarınızı yüz yüze konuşun. Her gün saat 17.00'ye kadar açığız.","Наш офис находится по адресу Ecevit Cd 23, Girne. Заходите, задавайте вопросы и обсуждайте свои планы лично. Открыто ежедневно до 17:00."],
+"Get directions":["Yol tarifi al","Построить маршрут"],
+"Take the next step":["Bir sonraki adımı atın","Сделайте следующий шаг"],
+"Talk to us about your plans.":["Planlarınızı bizimle konuşun.","Расскажите нам о своих планах."],
+"WhatsApp · or call":["WhatsApp · veya arayın","WhatsApp · или звоните"],
+"Call the office":["Ofisi arayın","Позвонить в офис"],
+"Directions":["Yol tarifi","Маршрут"],
+"Talk to Kumi":["Kumi ile konuşun","Поговорить с Kumi"],
+"AI assistant · demo":["Yapay zekâ asistanı · demo","ИИ-ассистент · демо"],
+"Send":["Gönder","Отправить"],
+"What services do you offer?":["Hangi hizmetleri sunuyorsunuz?","Какие услуги вы предлагаете?"],
+"Opening hours":["Çalışma saatleri","Часы работы"],
+"Where is the office?":["Ofis nerede?","Где находится офис?"],
+"Prices":["Fiyatlar","Цены"],
+"Continue on WhatsApp":["WhatsApp'ta devam edin","Продолжить в WhatsApp"]
+};
+var W={
+"Hello, I found your website and would like some information.":["Merhaba, web sitenizi buldum ve bilgi almak istiyorum.","Здравствуйте, я нашёл ваш сайт и хотел бы получить информацию."],
+"Hello, I would like to talk about my plans.":["Merhaba, planlarım hakkında konuşmak istiyorum.","Здравствуйте, я хотел бы обсудить свои планы."],
+"Hello, I was chatting with your website assistant and have a question.":["Merhaba, web sitenizin asistanıyla yazışıyordum ve bir sorum var.","Здравствуйте, я общался с ассистентом вашего сайта, и у меня есть вопрос."]
+};
+var AL={
+tr:{services:"Dört hizmet sunuyoruz: mimarlık, iç mimarlık, gayrimenkul ve arsa-yatırım. Hangisiyle ilgileniyorsunuz?",hours:"Ofisimiz Ecevit Cd 23, Girne'de her gün saat 17.00'ye kadar açıktır.",visit:"Sizi Ecevit Cd 23, Girne'deki ofisimize bekleriz. Haritayı açmak için bu sayfadaki “Yol tarifi al” düğmesine dokunun.",call:"En hızlı yol +90 533 864 96 96 numaralı WhatsApp hattıdır. Ofisi (0392) 816 02 54 numarasından da arayabilirsiniz.",price:"Fiyatlar mülke göre değişir. Lütfen WhatsApp'tan yazın, ekibimiz güncel stok ve fiyatları paylaşacaktır.",deed:"Tapu devir zamanı sözleşmenizde yazılı olarak belirlenir. Ekibimizden biri mülkünüz için tam süreci anlatacaktır.",def:"Sorunuz için teşekkürler. En doğru yanıtı ekibimiz verebilir. +90 533 864 96 96 numaralı WhatsApp'tan yazın, size yardımcı olacaklardır."},
+ru:{services:"Мы предлагаем четыре услуги: архитектура, дизайн интерьера, недвижимость, земля и инвестиции. Что вас интересует?",hours:"Офис по адресу Ecevit Cd 23, Girne открыт ежедневно до 17:00.",visit:"Будем рады видеть вас по адресу Ecevit Cd 23, Girne. Нажмите «Построить маршрут» на этой странице, чтобы открыть карту.",call:"Быстрее всего написать в WhatsApp: +90 533 864 96 96. Также можно позвонить в офис: (0392) 816 02 54.",price:"Цены зависят от объекта. Напишите нам в WhatsApp, и команда пришлёт актуальные предложения и цены.",deed:"Сроки оформления права собственности фиксируются в договоре письменно. Сотрудник объяснит точный порядок для вашего объекта.",def:"Спасибо за вопрос. Лучше всего на него ответит сотрудник. Напишите нам в WhatsApp: +90 533 864 96 96."}
+};
+var G={en:"Hello, I’m Kumi, the assistant for Kumyalı Estate & Construction. This is a demo, so my answers are limited. How can I help?",tr:"Merhaba, ben Kumi, Kumyalı Estate & Construction'ın asistanıyım. Bu bir demodur, yanıtlarım sınırlıdır. Nasıl yardımcı olabilirim?",ru:"Здравствуйте, я Kumi, ассистент Kumyalı Estate & Construction. Это демо, поэтому мои ответы ограничены. Чем могу помочь?"};
+var WD={en:["We design.","We build.","We hand over."],tr:["Tasarlıyoruz.","İnşa ediyoruz.","Teslim ediyoruz."],ru:["Проектируем.","Строим.","Передаём."]};
+var cur="en",LI={tr:0,ru:1};
+
+function ans(t){var s=t.toLowerCase(),k="def";
+ if(/servic|architect|interior|land|invest|real estate|build|hizmet|mimar|arsa|yatırım|emlak|gayrimenkul|inşaat|услуг|архитект|дизайн|земл|участ|инвест|недвижим|строи/.test(s))k="services";
+ else if(/hour|open|close|when|saat|açık|час|работ|открыт/.test(s))k="hours";
+ else if(/where|address|visit|location|direction|nerede|adres|ziyaret|konum|где|адрес|визит|добраться/.test(s))k="visit";
+ else if(/call|phone|number|contact|whatsapp|telefon|numara|iletişim|arayın|звон|телефон|номер|контакт/.test(s))k="call";
+ else if(/price|cost|how much|budget|£|\$|fiyat|ücret|bütçe|kaç|цен|стоим|сколько|бюджет/.test(s))k="price";
+ else if(/deed|title|tapu|титул/.test(s))k="deed";
+ setTimeout(function(){add((AL[cur]||A)[k],"b")},450)}
+q("#aib").onclick=function(){pan.classList.toggle("open");if(!msgs.children.length)add(G[cur],"b")};
+[].forEach.call(qs.querySelectorAll("button"),function(b){b.onclick=function(){ask(b.textContent)}});
+
+function setLang(l){
+ cur=l;var i=l in LI?LI[l]:-1;
+ document.documentElement.lang=l;
+ var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),n,list=[];
+ while(n=w.nextNode())list.push(n);
+ list.forEach(function(n){
+  if(n.parentNode.closest("script,style,#msgs,#tw"))return;
+  if(n.__o===undefined)n.__o=n.nodeValue;
+  var t=n.__o.trim();
+  n.nodeValue=(i>-1&&T.hasOwnProperty(t))?n.__o.replace(t,T[t][i]):n.__o;
+ });
+ [].forEach.call(document.querySelectorAll('a[href*="wa.me"]'),function(a){
+  if(!a.__h)a.__h=a.href;
+  var u=a.__h.split("?text="),t=decodeURIComponent(u[1]||""),s=t,m=t.match(/^Hello, I would like to ask about the (.+) on your website\.$/);
+  if(i>-1){
+   if(W[t])s=W[t][i];
+   else if(m){var nm=T[m[1]]?T[m[1]][i]:m[1];s=i?"Здравствуйте, я хотел бы узнать о проекте «"+nm+"» на вашем сайте.":"Merhaba, web sitenizdeki "+nm+" hakkında bilgi almak istiyorum."}
+  }
+  a.href=u[0]+"?text="+encodeURIComponent(s);
+ });
+ q("#in").placeholder=i>-1?["Hizmetlerimiz hakkında sorun…","Спросите об услугах…"][i]:"Ask about our services…";
+ words.splice.apply(words,[0,3].concat(WD[l]));if(wi===1)tw.textContent=words[0];
+ if(msgs.children.length===1){msgs.innerHTML="";add(G[l],"b")}
+ [].forEach.call(document.querySelectorAll(".lang button"),function(b){b.classList.toggle("on",b.dataset.l===l)});
+}
+[].forEach.call(document.querySelectorAll(".lang button"),function(b){b.onclick=function(){setLang(b.dataset.l);try{localStorage.setItem("lang",b.dataset.l)}catch(e){}}});
+var sv="";try{sv=localStorage.getItem("lang")}catch(e){}
+var bl=(navigator.language||"en").slice(0,2);
+setLang(/^(en|tr|ru)$/.test(sv)?sv:/^(tr|ru)$/.test(bl)?bl:"en");
 </script></body></html>
